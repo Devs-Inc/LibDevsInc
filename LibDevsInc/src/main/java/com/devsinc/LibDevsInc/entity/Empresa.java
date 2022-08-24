@@ -10,12 +10,12 @@ public class Empresa {
 
     public Empresa(String nombre, String direccion, String telefono, String NIT) {
 =======
-    private string nombre;
-    private string direccion;
-    private string telefono;
-    private string NIT;
+    private String nombre;
+    private String direccion;
+    private String telefono;
+    private String NIT;
 
-    public Empresa(string nombre, string direccion, string telefono, string NIT) {
+    public Empresa(String nombre, String direccion, String telefono, String NIT) {
 >>>>>>> 04d33d95de159e701bd0595d006af9da1857f29b
         this.nombre = nombre;
         this.direccion = direccion;
@@ -56,7 +56,7 @@ public class Empresa {
         this.NIT = NIT;
     }
 =======
-    public string getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -64,7 +64,7 @@ public class Empresa {
         this.nombre = nombre;
     }
 
-    public string getDireccion() {
+    public String getDireccion() {
         return direccion;
     }
 
@@ -72,7 +72,7 @@ public class Empresa {
         this.direccion = direccion;
     }
 
-    public string getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -80,7 +80,7 @@ public class Empresa {
         this.telefono = telefono;
     }
 
-    public string getNIT() {
+    public String getNIT() {
         return NIT;
     }
 
