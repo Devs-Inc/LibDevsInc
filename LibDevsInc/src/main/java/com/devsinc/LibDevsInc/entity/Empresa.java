@@ -2,7 +2,7 @@ package com.devsinc.LibDevsInc.entity;
 
 public class Empresa {
 
-private String nombre;
+    private String nombre;
     private String direccion;
     private String telefono;
     private String NIT;
