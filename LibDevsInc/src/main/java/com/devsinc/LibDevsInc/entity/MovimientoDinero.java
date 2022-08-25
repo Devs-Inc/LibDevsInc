@@ -1,12 +1,12 @@
 package com.devsinc.LibDevsInc.entity;
 
-public class Movimiento {
+public class MovimientoDinero {
     private double movimiento;
     private String concepto;
     private String usuarioRegistro;
 
     //Constructor
-    public Movimiento(double movimiento, String concepto, String usuarioRegistro) {
+    public MovimientoDinero(double movimiento, String concepto, String usuarioRegistro) {
         this.movimiento = movimiento;
         this.concepto = concepto;
         this.usuarioRegistro = usuarioRegistro;
