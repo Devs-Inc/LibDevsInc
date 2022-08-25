@@ -45,5 +45,4 @@ public class Empresa {
     public void setNIT(String NIT) {
         this.NIT = NIT;
     }
-
 }
