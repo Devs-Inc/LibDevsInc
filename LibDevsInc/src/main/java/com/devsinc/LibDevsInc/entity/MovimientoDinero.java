@@ -3,10 +3,11 @@ package com.devsinc.LibDevsInc.entity;
 public class MovimientoDinero {
     private double movimiento;
     private String concepto;
-    private String usuarioRegistro;
+    private Empleado usuarioRegistro;
+
 
     //Constructor
-    public MovimientoDinero(double movimiento, String concepto, String usuarioRegistro) {
+    public MovimientoDinero(double movimiento, String concepto, Empleado usuarioRegistro) {
         this.movimiento = movimiento;
         this.concepto = concepto;
         this.usuarioRegistro = usuarioRegistro;
@@ -29,11 +30,13 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public String getUsuarioRegistro() {
+    public Empleado getUsuarioRegistro() {
         return usuarioRegistro;
     }
 
-    public void setUsuarioRegistro(String usuarioRegistro) {
+    public void setUsuarioRegistro(Empleado usuarioRegistro) {
         this.usuarioRegistro = usuarioRegistro;
     }
+
+
 }
