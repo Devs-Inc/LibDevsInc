@@ -2,23 +2,23 @@ package com.devsinc.LibDevsInc.entity;
 
 public class Empleado {
 
-    private Strindg nombreEmpleado;
+    private String nombreEmpleado;
     private String correoEmpleado;
     private Empresa empresaEmpleado;
     private String rol;
 
-    public Empleado(Strindg nombreEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rol) {
+    public Empleado(String nombreEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rol) {
         this.nombreEmpleado = nombreEmpleado;
         this.correoEmpleado = correoEmpleado;
         this.empresaEmpleado = empresaEmpleado;
         this.rol = rol;
     }
 
-    public Strindg getNombreEmpleado() {
+    public String getNombreEmpleado() {
         return nombreEmpleado;
     }
 
-    public void setNombreEmpleado(Strindg nombreEmpleado) {
+    public void setNombreEmpleado(String nombreEmpleado) {
         this.nombreEmpleado = nombreEmpleado;
     }
 
