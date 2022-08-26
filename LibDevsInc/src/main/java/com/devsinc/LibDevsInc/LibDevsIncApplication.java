@@ -16,7 +16,7 @@ public class LibDevsIncApplication {
 		libreria.setNombre("Panaderia");
 		System.out.println(libreria.getNombre());
 
-		MovimientoDinero salida = new MovimientoDinero(3000, "Apertura de cuenta", "John Doe");
+		MovimientoDinero salida = new MovimientoDinero(3000, "Apertura de cuenta", null);
 		System.out.println(salida.getConcepto() + " " + salida.getMovimiento());
 		salida.setMovimiento(salida.getMovimiento() - 2500);
 		salida.setConcepto("Retiro");
