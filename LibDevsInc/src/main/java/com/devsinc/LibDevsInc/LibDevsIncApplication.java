@@ -11,6 +11,8 @@ public class LibDevsIncApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LibDevsIncApplication.class, args);
+
+
 	}
 
 }
