@@ -5,13 +5,11 @@ import com.devsinc.LibDevsInc.entity.Empleado;
 
 public class ServiciosEmpleado {
 
-
     //t = trabajador, hace alusion a Empleado
     Empleado t1;
     //Empleado t2;
 
     ServiciosEmpresa se1 = new ServiciosEmpresa();
-
 
     public ServiciosEmpleado (){
         Empresa empresaEmpleado = this.se1.ep1;
