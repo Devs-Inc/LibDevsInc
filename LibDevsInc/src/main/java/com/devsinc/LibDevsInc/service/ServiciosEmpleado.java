@@ -1,12 +1,10 @@
-package com.devsinc.LibDevsInc.servicios;
+package com.devsinc.LibDevsInc.service;
 
-import com.devsinc.LibDevsInc.*;
 import com.devsinc.LibDevsInc.entity.Empleado;
-import com.devsinc.LibDevsInc.repositorios.repositorioEmpleados;
+import com.devsinc.LibDevsInc.repository.repositorioEmpleados;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.ArrayList;
 
 
 @Service

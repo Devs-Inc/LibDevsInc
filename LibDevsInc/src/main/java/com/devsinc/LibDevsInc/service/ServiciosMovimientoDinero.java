@@ -1,4 +1,4 @@
-package com.devsinc.LibDevsInc.servicios;
+package com.devsinc.LibDevsInc.service;
 
 public class ServiciosMovimientoDinero {
 }

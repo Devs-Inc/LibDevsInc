@@ -1,12 +1,10 @@
-package com.devsinc.LibDevsInc.servicios;
+package com.devsinc.LibDevsInc.service;
 
 import com.devsinc.LibDevsInc.entity.Empresa;
-import com.devsinc.LibDevsInc.*;
-import com.devsinc.LibDevsInc.repositorios.repositorioEmpresas;
+import com.devsinc.LibDevsInc.repository.repositorioEmpresas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.ArrayList;
 
 @Service
 public class ServiciosEmpresa {

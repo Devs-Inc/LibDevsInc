@@ -1,7 +1,7 @@
 package com.devsinc.LibDevsInc.controller;
 
 import com.devsinc.LibDevsInc.entity.Empresa;
-import com.devsinc.LibDevsInc.servicios.ServiciosEmpresa;
+import com.devsinc.LibDevsInc.service.ServiciosEmpresa;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
