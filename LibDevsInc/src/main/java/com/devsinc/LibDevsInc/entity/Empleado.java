@@ -1,11 +1,28 @@
 package com.devsinc.LibDevsInc.entity;
 
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="empleados")
 public class Empleado {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long Id;
+    @Column(name="nombreEmpleado")
     private String nombreEmpleado;
+    @Column(name="correoEmpleado")
     private String correoEmpleado;
+    @Column(name="empresaEmpleado")
     private Empresa empresaEmpleado;
+    @Column(name="rol")
     private String rol;
+
+    //Constructor vacio para convertir en Tabla
+    public Empleado(){
+
+    }
 
     public Empleado(String nombreEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rol) {
         this.nombreEmpleado = nombreEmpleado;
