@@ -14,7 +14,7 @@ public class Empleado {
     private String nombreEmpleado;
     @Column(name="correoEmpleado")
     private String correoEmpleado;
-    @Column(name="empresaEmpleado")
+    @Transient
     private Empresa empresaEmpleado;
     @Column(name="rol")
     private String rol;

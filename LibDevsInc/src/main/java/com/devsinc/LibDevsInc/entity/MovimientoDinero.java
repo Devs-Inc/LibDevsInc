@@ -15,7 +15,7 @@ public class MovimientoDinero {
     private double movimiento;
     @Column(name="concepto")
     private String concepto;
-    @Column(name="usuarioRegistro")
+    @Transient
     private Empleado usuarioRegistro;
 
 
