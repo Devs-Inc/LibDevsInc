@@ -1,11 +1,30 @@
 package com.devsinc.LibDevsInc.entity;
 
-public class Empresa {
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="empresa")
+public class Empresa {
+    //atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long Id;
+    @Column(name="nombre")
     private String nombre;
+    @Column(name="direccion")
     private String direccion;
+    @Column(name="telefono")
     private String telefono;
+    @Column(name="nit")
     private String NIT;
+
+    //Constructor vacio para convertir en Tabla
+    public Empresa(){
+
+    }
 
     public Empresa(String nombre, String direccion, String telefono, String NIT) {
         this.nombre = nombre;
