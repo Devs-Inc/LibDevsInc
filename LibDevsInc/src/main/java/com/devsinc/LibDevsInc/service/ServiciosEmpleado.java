@@ -1,7 +1,7 @@
 package com.devsinc.LibDevsInc.service;
 
 import com.devsinc.LibDevsInc.entity.Empleado;
-import com.devsinc.LibDevsInc.repository.repositorioEmpleados;
+import com.devsinc.LibDevsInc.repository.RepositorioEmpleados;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
 @Service
 public class ServiciosEmpleado {
     //repTra es un atributo de empleado para diferenciarlo de empresa.
-    private repositorioEmpleados repTra;
+    private RepositorioEmpleados repTra;
 
-    public ServiciosEmpleado(repositorioEmpleados repTra) {
+    public ServiciosEmpleado(RepositorioEmpleados repTra) {
         this.repTra = repTra;
     }
 

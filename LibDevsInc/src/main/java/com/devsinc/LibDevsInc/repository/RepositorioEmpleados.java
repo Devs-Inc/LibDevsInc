@@ -1,9 +1,9 @@
 package com.devsinc.LibDevsInc.repository;
 
-import com.devsinc.LibDevsInc.entity.Empresa;
+import com.devsinc.LibDevsInc.entity.Empleado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface repositorioEmpresas extends JpaRepository<Empresa, Long> {
+public interface RepositorioEmpleados extends JpaRepository<Empleado, Long>{
 }

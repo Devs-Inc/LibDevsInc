@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface repositorioMovimientosDinero extends JpaRepository<MovimientoDinero, Long>{
+public interface RepositorioMovimientosDinero extends JpaRepository<MovimientoDinero, Long>{
     MovimientoDinero findByMovimientoId(Long movimientoId);
 }
