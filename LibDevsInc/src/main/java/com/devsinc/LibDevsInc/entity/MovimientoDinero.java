@@ -19,7 +19,8 @@ public class MovimientoDinero {
     private double movimiento;
     @Column(name="concepto")
     private String concepto;
-    @ManyToOne(cascade = CascadeType.ALL)
+    //@ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "IdEmpleado", nullable = false)
     private Empleado usuarioRegistro;
 
