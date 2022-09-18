@@ -1,9 +1,13 @@
 package com.devsinc.LibDevsInc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Set;
+
 @Entity
 @Table(name="MovimientosDinero")
 
@@ -15,7 +19,9 @@ public class MovimientoDinero {
     private double movimiento;
     @Column(name="concepto")
     private String concepto;
-    @Transient
+    //@ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "IdEmpleado", nullable = false)
     private Empleado usuarioRegistro;
 
 
@@ -23,11 +29,11 @@ public class MovimientoDinero {
     }
 
     //Constructor
-    public MovimientoDinero(double movimiento, String concepto, Empleado usuarioRegistro) {
+    /*public MovimientoDinero(double movimiento, String concepto, Empleado usuarioRegistro) {
         this.movimiento = movimiento;
         this.concepto = concepto;
         this.usuarioRegistro = usuarioRegistro;
-    }
+    }*/
 
     //Getters & Setters
     public double getMovimiento() {
