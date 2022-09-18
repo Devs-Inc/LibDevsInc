@@ -8,13 +8,14 @@ import javax.persistence.Table;
 @Table(name="empleados")
 public class Empleado {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private long idEmpleado;
     @Column(name="nombreEmpleado")
     private String nombreEmpleado;
     @Column(name="correoEmpleado")
     private String correoEmpleado;
-    @Transient
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "NIT")
     private Empresa empresaEmpleado;
     @Column(name="rol")
     private String rol;
@@ -23,13 +24,13 @@ public class Empleado {
     public Empleado(){
 
     }
-
+/*
     public Empleado(String nombreEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rol) {
         this.nombreEmpleado = nombreEmpleado;
         this.correoEmpleado = correoEmpleado;
         this.empresaEmpleado = empresaEmpleado;
         this.rol = rol;
-    }
+    }*/
 
     public String getNombreEmpleado() {
         return nombreEmpleado;
@@ -62,7 +63,7 @@ public class Empleado {
     public void setRol(String rol) {
         this.rol = rol;
     }
-
+/*
     @Override
     public String toString() {
         return "Empleado{" +
@@ -71,5 +72,13 @@ public class Empleado {
                 ", empresaEmpleado=" + empresaEmpleado +
                 ", rol='" + rol + '\'' +
                 '}';
+    }*/
+
+    public long getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(long idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 }
