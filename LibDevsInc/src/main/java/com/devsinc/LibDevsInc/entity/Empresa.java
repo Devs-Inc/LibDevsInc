@@ -21,6 +21,7 @@ public class Empresa {
     @Column(name="nit")
     private String NIT;
 
+
     //Constructor vacio para convertir en Tabla
     public Empresa(){
 
