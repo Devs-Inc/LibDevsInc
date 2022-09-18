@@ -1,82 +1,48 @@
 package com.devsinc.LibDevsInc.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table(name="empresa")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Table(name="empresas")
 public class Empresa {
     //atributos
     @Id
-    /*@GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;*/
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id_empresa", nullable = false)
+    private Long idEmpresa;
+
+    @Column(name="nit", nullable = false, unique = true)
     private long NIT;
-    @Column(name="nombre")
+
+    @Column(name="nombre", nullable = false)
     private String nombre;
-    @Column(name="direccion")
+
+    @Column(name="direccion", nullable = false)
     private String direccion;
-    @Column(name="telefono")
+
+    @Column(name="telefono", nullable = false)
     private String telefono;
 
-    /*@OneToMany(mappedBy = "empresaEmpleado")
-    @JsonIgnoreProperties(value = "empresaEmpleado") // para no ver ese ciclo infinito en Json
-    private Set<Empleado> empleado;*/
+    @CreationTimestamp
+    @Column(name = "fecha_creacion")
+    private LocalDateTime fechaCreacion;
 
-
-    //Constructor vacio para convertir en Tabla
-    public Empresa(){
-
-    }
-/*
-    public Empresa(String nombre, String direccion, String telefono, String NIT) {
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.NIT = NIT;
-    }*/
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public long getNIT() {
-        return NIT;
-    }
-
-    public void setNIT(long NIT) {
-        this.NIT = NIT;
-    }
-
-    /*public Set<Empleado> getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Set<Empleado> empleado) {
-        this.empleado = empleado;
-    }*/
+    @UpdateTimestamp
+    @Column(name = "fecha_actualizacion")
+    private LocalDateTime fechaActualizacion;
 }
