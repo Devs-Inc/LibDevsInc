@@ -16,7 +16,7 @@ public class ControlEmpleado {
 
     @GetMapping("/users")
     public String listaUsers(Model model) {
-        model.addAttribute("users", serviciosEmpleado.allEmpleados());
+        model.addAttribute("user", serviciosEmpleado.allEmpleados());
         return "users";
     }
 

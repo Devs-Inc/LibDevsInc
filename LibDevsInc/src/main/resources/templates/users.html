@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -25,7 +25,7 @@
                 <th>Empresa</th>
                 <th>Rol</th>
             </tr>
-            <tr th:each="users : ${users}">
+            <tr th:each="users : ${user}">
                 <td th:text="${users.nombre}"></td>
                 <td th:text="${users.correo}"></td>
                 <td th:text="${users.empresa.nombre}"></td>
