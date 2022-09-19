@@ -36,10 +36,10 @@ public class ControlEmpresa{
     }
 
     //editar una registro
-//    @PatchMapping("/enterprises/{id}")
-//    public Empresa patchEmpresa(@PathVariable Long id, @RequestBody Empresa e){
-//        return this.serviciosEmp.updateEmpresa(id,e);
-//    }
+    @PatchMapping("/enterprises/{id}")
+    public Empresa patchEmpresa(@PathVariable Long id, @RequestBody Empresa e){
+        return this.serviciosEmp.updateEmpresa(id,e);
+    }
 
     //borrar una registro
     @DeleteMapping("/enterprises/{id}")
