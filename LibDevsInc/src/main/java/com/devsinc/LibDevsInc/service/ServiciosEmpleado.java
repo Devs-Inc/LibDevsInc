@@ -41,7 +41,7 @@ public class ServiciosEmpleado {
     //Servicio Eliminar Empleado
     public String deleteEmpleado(Long id) {
         repositorioEmpleados.deleteById(id);
-        return "El empleado con ID " + id + " fue eliminado exitosamente";
+        return "El empleado con ID " + id + " fue eliminado exitosamente.";
     }
 
 }
