@@ -2,7 +2,7 @@ package com.devsinc.LibDevsInc.service;
 
 import com.devsinc.LibDevsInc.DTO.EmpresaDTO;
 import com.devsinc.LibDevsInc.entity.Empresa;
-import com.devsinc.LibDevsInc.repository.EmpresaRepo;
+import com.devsinc.LibDevsInc.repository.EmpresaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,21 +10,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmpresaServ {
-    private final EmpresaRepo empresaRepo;
+public class EmpresaService {
+    private final EmpresaRepository empresaRepository;
 
-    public EmpresaServ(EmpresaRepo empresaRepo) {
-        this.empresaRepo = empresaRepo;
+    public EmpresaService(EmpresaRepository empresaRepository) {
+        this.empresaRepository = empresaRepository;
     }
 
     public List<Empresa> todasLasEmpresas(){
         List<Empresa> empresaList = new ArrayList<>();
-        this.empresaRepo.findAll().forEach(empresa -> empresaList.add(empresa));
+        this.empresaRepository.findAll().forEach(empresa -> empresaList.add(empresa));
         return empresaList;
     }
 
     public Optional<Empresa> empresaPorId(Integer id){
-        return this.empresaRepo.findById(id);
+        return this.empresaRepository.findById(id);
     }
 
     public Empresa saveEmpresa(EmpresaDTO empresaDTO){
@@ -33,7 +33,7 @@ public class EmpresaServ {
         empresa.setDireccion(empresaDTO.getDireccion());
         empresa.setTelefono(empresaDTO.getTelefono());
         empresa.setNit(empresaDTO.getNit());
-        return this.empresaRepo.save(empresa);
+        return this.empresaRepository.save(empresa);
     }
 
     public Empresa updateEmpresa(EmpresaDTO empresaDTO){
@@ -43,12 +43,12 @@ public class EmpresaServ {
         empresa.setDireccion(empresaDTO.getDireccion());
         empresa.setTelefono(empresaDTO.getTelefono());
         empresa.setNit(empresaDTO.getNit());
-        return this.empresaRepo.save(empresa);
+        return this.empresaRepository.save(empresa);
     }
 
     public boolean borrarEmpresa(Integer id){
-        this.empresaRepo.deleteById(id);
-        if (this.empresaRepo.findById(id)!=null){
+        this.empresaRepository.deleteById(id);
+        if (this.empresaRepository.findById(id)!=null){
             return true;
         }
         return false;

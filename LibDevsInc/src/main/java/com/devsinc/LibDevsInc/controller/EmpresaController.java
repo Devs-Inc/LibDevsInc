@@ -6,9 +6,9 @@ import com.devsinc.LibDevsInc.DTO.MovimientoDineroDTO;
 import com.devsinc.LibDevsInc.entity.Empleado;
 import com.devsinc.LibDevsInc.entity.Empresa;
 import com.devsinc.LibDevsInc.entity.MovimientoDinero;
-import com.devsinc.LibDevsInc.service.EmpleadoServ;
-import com.devsinc.LibDevsInc.service.EmpresaServ;
-import com.devsinc.LibDevsInc.service.MovimientoDineroServ;
+import com.devsinc.LibDevsInc.service.EmpleadoService;
+import com.devsinc.LibDevsInc.service.EmpresaService;
+import com.devsinc.LibDevsInc.service.MovimientoDineroService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,21 +19,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class ControladorEmpresa {
-    private final EmpresaServ empresaServ;
-    private final EmpleadoServ empleadoServ;
-    private final MovimientoDineroServ movimientoDineroServ;
+public class EmpresaController {
+    private final EmpresaService empresaService;
+    private final EmpleadoService empleadoService;
+    private final MovimientoDineroService movimientoDineroService;
 
-    public ControladorEmpresa(EmpresaServ empresaServ, EmpleadoServ empleadoServ, MovimientoDineroServ movimientoDineroServ) {
-        this.empresaServ = empresaServ;
-        this.empleadoServ = empleadoServ;
-        this.movimientoDineroServ = movimientoDineroServ;
+    public EmpresaController(EmpresaService empresaService, EmpleadoService empleadoService, MovimientoDineroService movimientoDineroService) {
+        this.empresaService = empresaService;
+        this.empleadoService = empleadoService;
+        this.movimientoDineroService = movimientoDineroService;
     }
 
     //Consultar empresas
     @GetMapping("/enterprises")
     public String verEmpresas(Model model){
-        List<Empresa> empresas = this.empresaServ.todasLasEmpresas();
+        List<Empresa> empresas = this.empresaService.todasLasEmpresas();
         List<EmpresaDTO> empresasDTO = new ArrayList<>();
         empresas.forEach(empresa -> empresasDTO.add(new EmpresaDTO(empresa.getId(),
                 empresa.getNombre(),empresa.getDireccion(),empresa.getTelefono(),empresa.getNit(),
@@ -53,14 +53,14 @@ public class ControladorEmpresa {
     //Guardar empresa
     @PostMapping("/enterprises")
     public String guardarEmpresa(EmpresaDTO empresaDTO){
-        this.empresaServ.saveEmpresa(empresaDTO);
+        this.empresaService.saveEmpresa(empresaDTO);
         return "redirect:/enterprises";
     }
 
     //Editar empresa por ID
     @GetMapping("/enterprises/{id}")
     public String empresaPorID(@PathVariable("id") Integer id, Model model){
-        Empresa empresa = this.empresaServ.empresaPorId(id).get();
+        Empresa empresa = this.empresaService.empresaPorId(id).get();
         EmpresaDTO empresaDTO = new EmpresaDTO(empresa.getId(), empresa.getNombre(), empresa.getDireccion(),
                 empresa.getTelefono(), empresa.getNit(), empresa.getEmpleados());
         model.addAttribute("empresa", empresaDTO);
@@ -69,24 +69,24 @@ public class ControladorEmpresa {
 
     @PostMapping("/updateEnterprise")
     public String actualizarEmpresa(EmpresaDTO empresaDTO){
-        this.empresaServ.updateEmpresa(empresaDTO);
+        this.empresaService.updateEmpresa(empresaDTO);
         return "redirect:/enterprises";
     }
 
     @GetMapping ("/deleteEnterprise/{id}")
     public String deleteEmpresa(@PathVariable("id") Integer id){
-        this.empresaServ.borrarEmpresa(id);
+        this.empresaService.borrarEmpresa(id);
         return "redirect:/enterprises";
 
     }
 
     @GetMapping("/enterprise/{id}/movements")
     public String movimientosPorEmpresa(@PathVariable Integer id, Model model){
-        List<MovimientoDinero> movimientos= this.movimientoDineroServ.movimientosPorEmpresa(id);
+        List<MovimientoDinero> movimientos= this.movimientoDineroService.movimientosPorEmpresa(id);
         List<MovimientoDineroDTO> movimientoDineroDTOS = new ArrayList<>();
         movimientos.forEach(movimiento -> movimientoDineroDTOS.add(new MovimientoDineroDTO(movimiento.getId(), movimiento.getMonto(),
                 movimiento.getConcepto(), movimiento.getUsuario())));
-        Long total = this.movimientoDineroServ.sumarMovimientos();
+        Long total = this.movimientoDineroService.sumarMovimientos();
         model.addAttribute("movimientos", movimientoDineroDTOS);
         model.addAttribute("total", total);
         return "verMovimientos";
@@ -94,7 +94,7 @@ public class ControladorEmpresa {
 
     @GetMapping("/enterprises/{id}/users")
     public String verEmpleadosPorEmpresa(@PathVariable Integer id, Model model){
-        List<Empleado> empleados = this.empleadoServ.obtenerPorEmpresa(id);
+        List<Empleado> empleados = this.empleadoService.obtenerPorEmpresa(id);
         List<EmpleadoDTO> empleadoDTOS = new ArrayList<>();
         empleados.forEach(empleado -> empleadoDTOS.add(new EmpleadoDTO(empleado.getId(),
                 empleado.getNombre(), empleado.getCorreo(), empleado.getPassword(), empleado.getEmpresa(),

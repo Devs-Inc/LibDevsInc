@@ -2,7 +2,7 @@ package com.devsinc.LibDevsInc.service;
 
 import com.devsinc.LibDevsInc.DTO.MovimientoDineroDTO;
 import com.devsinc.LibDevsInc.entity.MovimientoDinero;
-import com.devsinc.LibDevsInc.repository.MovimientoDineroRepo;
+import com.devsinc.LibDevsInc.repository.MovimientoDineroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,18 +11,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MovimientoDineroServ {
+public class MovimientoDineroService {
     @Autowired
-    MovimientoDineroRepo movimientoDineroRepo;
+    MovimientoDineroRepository movimientoDineroRepository;
 
     public List<MovimientoDinero> getAllMovimientos(){
         List<MovimientoDinero> movimientosList = new ArrayList<>();
-        movimientoDineroRepo.findAll().forEach(movimiento -> movimientosList.add(movimiento));
+        movimientoDineroRepository.findAll().forEach(movimiento -> movimientosList.add(movimiento));
         return movimientosList;
     }
 
     public Optional<MovimientoDinero> getMovimientoById(Integer id){
-        return movimientoDineroRepo.findById(id);
+        return movimientoDineroRepository.findById(id);
     }
 
     public MovimientoDinero saveMovimiento(MovimientoDineroDTO movimientoDineroDTO){
@@ -30,7 +30,7 @@ public class MovimientoDineroServ {
         movimientoDinero.setMonto(movimientoDineroDTO.getMonto());
         movimientoDinero.setConcepto(movimientoDineroDTO.getConcepto());
         movimientoDinero.setUsuario(movimientoDineroDTO.getUsuario());
-        return this.movimientoDineroRepo.save(movimientoDinero);
+        return this.movimientoDineroRepository.save(movimientoDinero);
     }
 
     public MovimientoDinero updateMovimiento(MovimientoDineroDTO movimientoDineroDTO){
@@ -39,26 +39,26 @@ public class MovimientoDineroServ {
         movimientoDinero.setMonto(movimientoDineroDTO.getMonto());
         movimientoDinero.setConcepto(movimientoDineroDTO.getConcepto());
         movimientoDinero.setUsuario(movimientoDineroDTO.getUsuario());
-        return this.movimientoDineroRepo.save(movimientoDinero);
+        return this.movimientoDineroRepository.save(movimientoDinero);
     }
 
     public boolean deleteMovimiento (Integer id){
-        movimientoDineroRepo.deleteById(id);
-        if(this.movimientoDineroRepo.findById(id).isPresent()){
+        movimientoDineroRepository.deleteById(id);
+        if(this.movimientoDineroRepository.findById(id).isPresent()){
             return false;
         }
         return true;
     }
 
     public ArrayList<MovimientoDinero> movimientosPorEmpleado (Integer id) {
-        return movimientoDineroRepo.findByEmpleado(id);
+        return movimientoDineroRepository.findByEmpleado(id);
     }
 
     public ArrayList<MovimientoDinero> movimientosPorEmpresa (Integer id) {
-        return movimientoDineroRepo.findByEmpresa(id);
+        return movimientoDineroRepository.findByEmpresa(id);
     }
 
     public Long sumarMovimientos(){
-        return this.movimientoDineroRepo.sumarMonto();
+        return this.movimientoDineroRepository.sumarMonto();
     }
 }
