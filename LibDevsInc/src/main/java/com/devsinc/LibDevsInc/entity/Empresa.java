@@ -9,37 +9,26 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@ToString
-@Table(name="empresas")
+@Entity
+@Table(name = "empresa")
 public class Empresa {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id_empresa", nullable = false)
-    private Long idEmpresa;
-
-    @Column(name="nit", nullable = false, unique = true)
-    private long NIT;
-
-    @Column(name="nombre", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nombre;
-
-    @Column(name="direccion", nullable = false)
     private String direccion;
-
-    @Column(name="telefono", nullable = false)
     private String telefono;
+    private String nit;
 
-    @CreationTimestamp
-    @Column(name = "fecha_creacion")
-    private LocalDateTime fechaCreacion;
+    @OneToMany
+    private List<Empleado> empleados;
 
-    @UpdateTimestamp
-    @Column(name = "fecha_actualizacion")
-    private LocalDateTime fechaActualizacion;
+
 }
