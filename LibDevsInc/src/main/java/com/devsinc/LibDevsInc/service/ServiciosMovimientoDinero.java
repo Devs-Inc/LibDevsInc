@@ -1,7 +1,6 @@
 package com.devsinc.LibDevsInc.service;
 
 import com.devsinc.LibDevsInc.entity.MovimientoDinero;
-import com.devsinc.LibDevsInc.repository.RepositorioMovimientosDinero;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

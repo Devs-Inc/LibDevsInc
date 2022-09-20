@@ -1,7 +1,6 @@
 package com.devsinc.LibDevsInc.service;
 
 import com.devsinc.LibDevsInc.entity.Empresa;
-import com.devsinc.LibDevsInc.repository.RepositorioEmpresas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
