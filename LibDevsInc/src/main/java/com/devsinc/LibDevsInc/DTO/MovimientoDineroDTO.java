@@ -6,17 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class EmpresaDTO {
+public class MovimientoDineroDTO {
     private int id;
-    private String nombre;
-    private String direccion;
-    private String telefono;
-    private String nit;
-    private List<Empleado> empleados;
+    private long monto;
+    private String concepto;
+    private Empleado usuario;
 }

@@ -31,5 +31,4 @@ public class Empleado {
     private String rol;
     @OneToMany
     private List<MovimientoDinero> movimientos;
-
 }

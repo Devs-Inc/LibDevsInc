@@ -18,7 +18,6 @@ import java.util.List;
 @Entity
 @Table(name = "empresa")
 public class Empresa {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -29,6 +28,4 @@ public class Empresa {
 
     @OneToMany
     private List<Empleado> empleados;
-
-
 }
