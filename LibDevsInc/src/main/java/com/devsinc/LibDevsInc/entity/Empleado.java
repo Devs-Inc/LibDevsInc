@@ -1,84 +1,34 @@
 package com.devsinc.LibDevsInc.entity;
 
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
-@Table(name="empleados")
+@Table(name="empleado")
 public class Empleado {
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
-    private long idEmpleado;
-    @Column(name="nombreEmpleado")
-    private String nombreEmpleado;
-    @Column(name="correoEmpleado")
-    private String correoEmpleado;
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "NIT")
-    private Empresa empresaEmpleado;
-    @Column(name="rol")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String nombre;
+    private String correo;
+    private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
     private String rol;
-
-    //Constructor vacio para convertir en Tabla
-    public Empleado(){
-
-    }
-/*
-    public Empleado(String nombreEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rol) {
-        this.nombreEmpleado = nombreEmpleado;
-        this.correoEmpleado = correoEmpleado;
-        this.empresaEmpleado = empresaEmpleado;
-        this.rol = rol;
-    }*/
-
-    public String getNombreEmpleado() {
-        return nombreEmpleado;
-    }
-
-    public void setNombreEmpleado(String nombreEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
-    }
-
-    public String getCorreoEmpleado() {
-        return correoEmpleado;
-    }
-
-    public void setCorreoEmpleado(String correoEmpleado) {
-        this.correoEmpleado = correoEmpleado;
-    }
-
-    public Empresa getEmpresaEmpleado() {
-        return empresaEmpleado;
-    }
-
-    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
-        this.empresaEmpleado = empresaEmpleado;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-/*
-    @Override
-    public String toString() {
-        return "Empleado{" +
-                "nombreEmpleado='" + nombreEmpleado + '\'' +
-                ", correoEmpleado='" + correoEmpleado + '\'' +
-                ", empresaEmpleado=" + empresaEmpleado +
-                ", rol='" + rol + '\'' +
-                '}';
-    }*/
-
-    public long getIdEmpleado() {
-        return idEmpleado;
-    }
-
-    public void setIdEmpleado(long idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
+    @OneToMany
+    private List<MovimientoDinero> movimientos;
 }
