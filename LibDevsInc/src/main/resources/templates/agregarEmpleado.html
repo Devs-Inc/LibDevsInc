@@ -3,23 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Agregar Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
-<h1>Agregar Empleado</h1>
-<form th:action="@{/users}" th:object="${empleado}" method="post">
-    <label for="nombre">Nombre del empleado</label>
-    <input type="text" id="nombre" th:field="*{nombre}">
-    <label for="correo">Correo del empleado</label>
-    <input type="email" id="correo" th:field="*{correo}">
-    <label for="password">Contraseña del empleado</label>
-    <input type="password" id="password" th:field="*{password}">
-    <label for="empresa">Empresa a la que pertenece</label>
-    <select th:field="*{empresa}" id="empresa" required>
-        <option th:each="empresa : ${empresas}" th:text="${empresa.nombre}" th:value="${empresa.id}"></option>
-    </select>
-    <label for="rol">Rol del empleado</label>
-    <input type="text" id="rol" th:field="*{rol}">
-    <button> Crear Empleado</button>
-</form>
+<div class="px-5 py-5 my-3 text-center">
+    <h1 class="display-5 fw-bold mb-5">Agregar Empleado</h1>
+    <div class="col-lg-5 mx-auto">
+        <form th:action="@{/users}" th:object="${empleado}" method="post">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre del empleado</label>
+                <input class="form-control" type="text" id="nombre" th:field="*{nombre}">
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo del empleado</label>
+                <input class="form-control" type="email" id="correo" th:field="*{correo}">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña del empleado</label>
+                <input class="form-control" type="password" id="password" th:field="*{password}">
+            </div>
+            <div class="">
+                <label for="empresa" class="form-label">Empresa a la que pertenece</label>
+                <select th:field="*{empresa}" class="form-select" id="empresa" required>
+                    <option value="none">Seleccione Empresa</option>
+                    <option th:each="empresa : ${empresas}" th:text="${empresa.nombre}" th:value="${empresa.id}"></option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="rol" class="form-label">Rol del empleado</label>
+                <input class="form-control" type="text" id="rol" th:field="*{rol}">
+            </div>
+                <button class="btn btn-primary mb-3"> Crear Empleado</button>
+
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

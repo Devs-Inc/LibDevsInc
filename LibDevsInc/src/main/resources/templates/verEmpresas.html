@@ -2,11 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Agregar Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>Empresas</title>
 </head>
 <body>
-<h1>Empresas</h1>
-<table>
+<div class="px-5 py-5 my-3 text-center">
+<h1 class="display-5 fw-bold mb-4">Empresas</h1>
+    <a th:href="@{/adEnterprise}" class="btn btn-primary mb-3">Agregar Empresa</a>
+    <a th:href="@{/users}" class="btn btn-primary mb-3">Ver Empleados</a>
+    <a th:href="@{/movements}" class="btn btn-primary mb-3">Ver lista de Movimientos</a>
+    <br>
+    <br>
+<table table class="table table-hover">
     <tr>
         <th>ID</th>
         <th>Nombre</th>
@@ -24,14 +32,13 @@
         <td th:text="${empresa.direccion}"></td>
         <td th:text="${empresa.telefono}"></td>
         <td th:text="${empresa.nit}"></td>
-        <td><button type="button" ><a th:href="@{/enterprises/{id}/users (id=${empresa.id})}">Ver</a></button></td>
-        <td><button type="button" ><a th:href="@{/enterprise/{id}/movements (id=${empresa.id})}">Ver</a></button></td>
-        <td><button type="button" ><a th:href="@{/enterprises/{id}(id=${empresa.id})}">Editar</a></button></td>
-        <td><button type="button" ><a th:href="@{/deleteEnterprise/{id}(id=${empresa.id})}">Eliminar</a></button></td>
+        <td><a th:href="@{/enterprises/{id}/users (id=${empresa.id})}" style="text-decoration:none" >👥</a></td>
+        <td><a th:href="@{/enterprise/{id}/movements (id=${empresa.id})}" style="text-decoration:none" >🧾</a></td>
+        <td><a th:href="@{/enterprises/{id}(id=${empresa.id})}" style="text-decoration:none" >✏</a></td>
+        <td><a th:href="@{/deleteEnterprise/{id}(id=${empresa.id})}" style="text-decoration:none">🗑</a></td>
     </tr>
 </table>
-<a th:href="@{/adEnterprise}">Agregar Empresa</a>
-<a th:href="@{/users}">Ver Empleados</a>
-<a th:href="@{/movements}">Ver lista de Movimientos</a>
+
+</div>
 </body>
 </html>

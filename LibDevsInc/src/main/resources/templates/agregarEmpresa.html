@@ -2,20 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
     <title>Agregar Empresa</title>
 </head>
 <body>
-<h1>Agregar Empresa</h1>
-<form th:action="@{/enterprises}" th:object="${empresa}" method="post">
-    <label for="nombre">Nombre de la empresa</label>
-    <input type="text" id="nombre" th:field="*{nombre}">
-    <label for="direccion">Dirección de la empresa</label>
-    <input type="text" id="direccion" th:field="*{direccion}">
-    <label for="telefono">Telefóno de la empresa</label>
-    <input type="text" id="telefono" th:field="*{telefono}">
-    <label for="nit">Nit de la empresa</label>
-    <input type="text" id="nit" th:field="*{nit}">
-    <button> Crear Empresa</button>
-</form>
+<div class="px-4 py-3 my-2 text-center">
+    <h1 class="display-5 fw-bold mb-5">Agregar Empresa</h1>
+    <div class="col-lg-5 mx-auto">
+        <form th:action="@{/enterprises}" th:object="${empresa}" method="post">
+            <label for="nombre" class="form-label">Nombre de la empresa</label>
+            <input class="form-control" type="text" id="nombre" th:field="*{nombre}">
+            <label for="direccion" class="form-label">Dirección de la empresa</label>
+            <input class="form-control" type="text" id="direccion" th:field="*{direccion}">
+            <label for="telefono" class="form-label">Telefóno de la empresa</label>
+            <input class="form-control"type="text" id="telefono" th:field="*{telefono}">
+            <label for="nit" class="form-label">Nit de la empresa</label>
+            <input class="form-control" type="text" id="nit" th:field="*{nit}">
+            <br>
+            <button class="btn btn-primary mb-1"> Crear Empresa</button>
+        </form>
+   </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
