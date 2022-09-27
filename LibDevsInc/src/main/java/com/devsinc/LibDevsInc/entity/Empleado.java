@@ -1,48 +1,34 @@
 package com.devsinc.LibDevsInc.entity;
 
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name="empleado")
 public class Empleado {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String nombre;
+    private String correo;
+    private String password;
 
-    private String nombreEmpleado;
-    private String correoEmpleado;
-    private Empresa empresaEmpleado;
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
     private String rol;
-
-    public Empleado(String nombreEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rol) {
-        this.nombreEmpleado = nombreEmpleado;
-        this.correoEmpleado = correoEmpleado;
-        this.empresaEmpleado = empresaEmpleado;
-        this.rol = rol;
-    }
-
-    public String getNombreEmpleado() {
-        return nombreEmpleado;
-    }
-
-    public void setNombreEmpleado(String nombreEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
-    }
-
-    public String getCorreoEmpleado() {
-        return correoEmpleado;
-    }
-
-    public void setCorreoEmpleado(String correoEmpleado) {
-        this.correoEmpleado = correoEmpleado;
-    }
-
-    public Empresa getEmpresaEmpleado() {
-        return empresaEmpleado;
-    }
-
-    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
-        this.empresaEmpleado = empresaEmpleado;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
+    @OneToMany
+    private List<MovimientoDinero> movimientos;
 }

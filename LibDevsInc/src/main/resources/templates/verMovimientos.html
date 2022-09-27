@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Movimientos</title>
+</head>
+<body>
+<div class="px-5 py-5 my-3 text-center">
+    <h1 class="display-5 fw-bold mb-4">Movimientos</h1>
+
+    <a th:href="@{/adMovement}" class="btn btn-primary mb-3">Agregar Movimiento</a>
+    <a th:href="@{/enterprises}" class="btn btn-primary mb-3">Ver Empresas</a>
+    <a th:href="@{/users}" class="btn btn-primary mb-3">Ver Empleados</a>
+    <br>
+    <br>
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Monto</th>
+            <th>Concepto</th>
+            <th>Usuario</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        <tr th:each="movimiento : ${movimientos}">
+            <td th:text="${movimiento.id}"></td>
+            <td th:text="${movimiento.monto}"></td>
+            <td th:text="${movimiento.concepto}"></td>
+            <td th:text="${movimiento.usuario.nombre}"></td>
+            <td><a th:href="@{/movement/{id}(id=${movimiento.id})}" style="text-decoration:none">✏</a></td>
+            <td><a th:href="@{/deleteMovement/{id}(id=${movimiento.id})}" style="text-decoration:none">🗑</a></td>
+        </tr>
+    </table>
+    <br/>
+    <label for="total" class="form-label fw-bold mb-5">Total:</label>
+    <input type="text" class="form-control-gl border-0" readonly th:value="${total}" id="total">
+    <br/>
+
+</div>
+</body>
+</html>

@@ -1,42 +1,28 @@
 package com.devsinc.LibDevsInc.entity;
 
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.time.LocalDateTime;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name="movimiento")
 public class MovimientoDinero {
-    private double movimiento;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private long monto;
     private String concepto;
-    private Empleado usuarioRegistro;
-
-
-    //Constructor
-    public MovimientoDinero(double movimiento, String concepto, Empleado usuarioRegistro) {
-        this.movimiento = movimiento;
-        this.concepto = concepto;
-        this.usuarioRegistro = usuarioRegistro;
-    }
-
-    //Getters & Setters
-    public double getMovimiento() {
-        return movimiento;
-    }
-
-    public void setMovimiento(double movimiento) {
-        this.movimiento = movimiento;
-    }
-
-    public String getConcepto() {
-        return concepto;
-    }
-
-    public void setConcepto(String concepto) {
-        this.concepto = concepto;
-    }
-
-    public Empleado getUsuarioRegistro() {
-        return usuarioRegistro;
-    }
-
-    public void setUsuarioRegistro(Empleado usuarioRegistro) {
-        this.usuarioRegistro = usuarioRegistro;
-    }
-
-
+    @ManyToOne
+    @JoinColumn(name = "empleado_id")
+    private Empleado usuario;
 }
