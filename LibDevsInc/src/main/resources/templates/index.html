@@ -11,16 +11,6 @@
 </head>
 <body>
 <main>
-    <div class="row align-items-center" >
-        <div sec:authorize="isAuthenticated()">
-            <h5 th:text="'Bienvenido ' + ${usuario.getEmail()}" align="right"></h5>
-        </div>
-
-    </div>
-
-
-
-
 
     <div class="px-4 py-4 mx-5 my-5 text-center">
         <img src="img/logo.png" class="d-block mx-auto my-auto mb-4" height="200" alt="PosgreSQL" />
@@ -32,7 +22,7 @@
                 <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-5 gap-3">Iniciar sesión</a>
             </div>
             <div sec:authorize="isAuthenticated()">
-                <a href="/interface" type="button" class="btn btn-primary btn-lg px-5 gap-3">Ir al aplicativo</a>
+                <a href="/enterprises" type="button" class="btn btn-primary btn-lg px-5 gap-3">Ir al aplicativo</a>
             </div>
 
 
