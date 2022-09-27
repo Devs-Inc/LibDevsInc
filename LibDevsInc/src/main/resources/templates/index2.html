@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>LibDevs</title>
     <link rel="stylesheet" href="./material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -33,31 +30,16 @@
             </nav>
     </div>
 
-    <div class="px-4 py-4 mx-5 my-5 text-center">
-        <img src="img/logo.png" class="d-block mx-auto my-auto mb-4" height="200" alt="PosgreSQL" />
-        <h1 class="display-5 fw-bold">Libreria Devs-Inc</h1>
-        <div class="col-lg-6 mx-auto">
-            <p>Hemos bajado los índices de ignorancia un poquitico</p>
 
-            <div sec:authorize="!isAuthenticated()">
-                <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-5 gap-3">Iniciar sesión</a>
-            </div>
-            <div sec:authorize="isAuthenticated()">
-                <a href="/enterprises" type="button" class="btn btn-primary btn-lg px-5 gap-3">Ir al aplicativo</a>
-            </div>
-
-
-            <!button type="button" class="btn btn-outline-secondary btn-lg px-5"><!/button>
-
-        </div>
-    </div>
-
+    <iframe
+            width=auto
+            height=100%
+            src="http://localhost:8080/enterprises">
+    </iframe>
 
 </div>
 
 
  <script src="./material.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
 </body>
 </html>
